@@ -1,6 +1,5 @@
 package free.lzy.entity.bo;
 
-
 /**
  * 响应结果状态码
  * @ClassName Code

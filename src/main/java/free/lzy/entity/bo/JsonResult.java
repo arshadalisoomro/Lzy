@@ -2,6 +2,9 @@ package free.lzy.entity.bo;
 
 import org.apache.commons.lang.StringUtils;
 
+/**
+ * 响应Bean
+ */
 public class JsonResult {
 	
 	/**
