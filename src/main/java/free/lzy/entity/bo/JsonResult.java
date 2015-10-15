@@ -4,30 +4,36 @@ import org.apache.commons.lang.StringUtils;
 
 public class JsonResult {
 	
-	private boolean flag;
+	/**
+	 * 响应码
+	 */
+	private Code code;
+	
+	/**
+	 * 响应描述
+	 */
 	private String msg = "";
-	private String data = "[]";
-	private String timestamp_str = "";
+	
+	/**
+	 * 响应时间戳
+	 */
 	private String timestamp = "";
 	
-	public JsonResult(Boolean resultIsJsonArray){
-		if (null == resultIsJsonArray){
-			this.setData("");
-			return;
-		}
-		if (resultIsJsonArray){
-			this.setData("[]");
-		}else{
-			this.setData("{}");
-		}
+	/**
+	 * 响应数据
+	 */
+	private String data = "[]";
+	
+	public JsonResult(boolean isArray){
+		this.setData(isArray ? "[]" : "{}");
 	}
 	
-	public boolean isFlag() {
-		return flag;
+	public Code getCode() {
+		return code;
 	}
 
-	public void setFlag(boolean flag) {
-		this.flag = flag;
+	public void setCode(Code code) {
+		this.code = code;
 	}
 
 	public String getMsg() {
@@ -46,14 +52,6 @@ public class JsonResult {
 		this.data = data;
 	}
 
-	public String getTimestamp_str() {
-		return timestamp_str;
-	}
-
-	public void setTimestamp_str(String timestamp_str) {
-		this.timestamp_str = timestamp_str;
-	}
-
 	public String getTimestamp() {
 		return timestamp;
 	}
@@ -64,9 +62,8 @@ public class JsonResult {
 
 	public String toString(){
 		StringBuilder buf = new StringBuilder();
-		buf.append("{\"flag\":").append(this.isFlag());
+		buf.append("{\"flag\":").append(this.code.getCode());
 		buf.append(",\"msg\":\"").append(msg);
-		buf.append("\",\"timestamp_str\":\"").append(this.timestamp_str);
 		buf.append("\",\"timestamp\":\"").append(this.timestamp);
 		buf.append("\",\"data\":").append(StringUtils.defaultIfEmpty(this.data.trim(), "\"\""));
 		buf.append("}");

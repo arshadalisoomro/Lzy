@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSONObject;
 
+import free.lzy.entity.bo.Code;
 import free.lzy.entity.bo.JsonResult;
 import free.lzy.service.BookService;
 
@@ -37,11 +38,11 @@ public class BookResource {
 		JsonResult result = new JsonResult(false);
 		try {
 			result.setData(JSONObject.toJSONString(bookService.queryBook(id)));
-			result.setFlag(true);
+			result.setCode(Code.OK);
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);
 
-			result.setFlag(false);
+			result.setCode(Code.ERROR);
 			result.setMsg("Error: " + e.getMessage());
 		}
 		
