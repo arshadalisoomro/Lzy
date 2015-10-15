@@ -3,7 +3,7 @@
 # Lzy
 > A simple framework.
 
-####Base Component
+#####Base Component
 	Maven
 
 	Spring-3.2.0.RELEASE
