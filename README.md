@@ -1,7 +1,7 @@
 
 
 # Lzy
-> A simple framework.
+> A simple framework (Restful).
 
 #####Base Component
 	Maven
