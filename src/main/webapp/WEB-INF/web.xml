@@ -9,7 +9,7 @@
 		<param-value>
 			classpath:appconfig/applicationContext.xml,
 			classpath:datasource/datasource.xml,
-			classpath:mybatis/mybatis.xml,
+			classpath:mybatis/mybatis.xml
 		</param-value>
 	</context-param>
 	
