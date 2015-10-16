@@ -19,4 +19,12 @@
 	...
 
 
+####Run demo
+	1. Exec "file/db.sql"
+	2. Deployed to the server(Tomcat)
+	3. Access path:
+			localhost:8080/Lzy/services/book/queryBook/1
+			localhost:8080/Lzy/services/book/queryBook/-1
+			localhost:8080/Lzy/services/book/queryBook/2
+
 
