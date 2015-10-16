@@ -39,7 +39,7 @@ public class ExceptionAdvice {
 		} catch (ServiceException e) {
 			BUSINESS_FAIL_LOGGER.error(e.getMessage(), e);
 			
-			repsonse = FailResult.toJson(Code.ERROR, e.getMessage());
+			repsonse = FailResult.toJson(Code.BUSINESS_FAIL, e.getMessage());
 		} catch (Throwable e) {
 			REST_ERROR_LOGGER.error(e.getMessage(), e);
 
