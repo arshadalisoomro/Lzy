@@ -7,13 +7,31 @@ package free.lzy.entity.bo;
  */
 public enum Code {
 	
-	OK("10000"), ERROR("20000"), UNLOGIN("30000");
+	/**
+	 * 业务成功
+	 */
+	OK("10000"), 
+	
+	/**
+	 * 业务失败
+	 */
+	FAIL("20000"),
+	
+	/**
+	 * 未登录 或 Session过期
+	 */
+	UNLOGIN("30000"),
+
+	/**
+	 * 系统异常
+	 */
+	ERROR("40000");
 	
 	/**
 	 * 状态码
 	 */
 	private String code;
-	
+
 	private Code(String code) {
 		this.code = code;
 	}
