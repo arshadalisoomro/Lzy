@@ -49,7 +49,7 @@ public class RestAuthenticationFilter implements Filter {
 			String queryString = request.getQueryString();
 			requestURI = requestURI + (StringUtils.isNotEmpty(queryString) ? ("?" + queryString) : StringUtils.EMPTY);
 			
-			LOGGER.debug(String.format("[%s] [%s] [%s] %s", remoteAddr, method, requestURI)); 
+			LOGGER.debug(String.format("[%s] [%s] %s", remoteAddr, method, requestURI)); 
 		} catch (Exception e) {
 			LOGGER.warn("AccessAPI logger error: " + e.getMessage(), e);
 		}
