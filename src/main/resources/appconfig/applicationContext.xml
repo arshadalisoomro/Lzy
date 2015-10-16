@@ -16,7 +16,7 @@
 	<context:annotation-config /> 
     <context:component-scan base-package="free.lzy.*" />
     
-	<aop:aspectj-autoproxy proxy-target-class="true"/> 
+	<aop:aspectj-autoproxy/> 
     
    	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="ignoreResourceNotFound" value="true" />
