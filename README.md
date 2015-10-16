@@ -20,9 +20,10 @@
 
 
 ####Run demo
-	1. Exec "file/db.sql"
-	2. Deployed to the server(Tomcat)
-	3. Access path:
+	1. Modify "jdbc.propertis"
+	2. Exec "file/demo_db.sql"
+	3. Deployed to the server(Tomcat)
+	4. Access path:
 			localhost:8080/Lzy/services/book/queryBook/1
 			localhost:8080/Lzy/services/book/queryBook/-1
 			localhost:8080/Lzy/services/book/queryBook/2
