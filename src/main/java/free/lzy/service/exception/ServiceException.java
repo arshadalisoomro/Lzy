@@ -1,4 +1,4 @@
-package free.lzy.common;
+package free.lzy.service.exception;
 
 /**
  * 业务异常

@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 import free.lzy.common.Code;
 import free.lzy.common.FailResult;
-import free.lzy.common.ServiceException;
 import free.lzy.log.LzyLog;
+import free.lzy.service.exception.ServiceException;
 
 /**
  * Common AOP

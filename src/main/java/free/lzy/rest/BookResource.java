@@ -14,9 +14,9 @@ import com.alibaba.fastjson.JSONObject;
 
 import free.lzy.common.Code;
 import free.lzy.common.FailResult;
-import free.lzy.common.ServiceException;
 import free.lzy.entity.dto.Book;
 import free.lzy.service.BookService;
+import free.lzy.service.exception.ServiceException;
 
 /**
  * Demo: Book Resource
