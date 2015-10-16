@@ -12,11 +12,11 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+		<property name="mapperLocations" value="classpath:free/lzy/entity/dto/*.xml" />
 	</bean>
 
 	<bean id="bookDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="free.lzy.dao.BookDao"></property>
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="free.lzy.dao.BookDao" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 </beans>
