@@ -4,6 +4,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class BookResource {
 	
 	@GET
 	@Path("/queryBook/{id}")
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response queryBook(@PathParam("id") int id) throws ServiceException {
 		HttpStatus status = HttpStatus.OK;
 
