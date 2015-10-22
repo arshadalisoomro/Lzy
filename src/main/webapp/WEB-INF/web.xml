@@ -5,11 +5,6 @@
 	version="2.5">
 
 	<context-param>
-		<param-name>webAppRootKey</param-name>
-		<param-value>WEB_ROOT</param-value>
-	</context-param>
-
-	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:appconfig/applicationContext.xml,
@@ -25,6 +20,21 @@
 	<listener>
 		<listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
 	</listener>
+	
+	<servlet>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -43,21 +53,6 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/services/*</url-pattern>
 	</filter-mapping>
-
-	<servlet>
-		<servlet-name>jersey-serlvet</servlet-name>
-		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
-		<init-param>
-			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
-			<param-value>true</param-value>
-		</init-param>
-		<load-on-startup>2</load-on-startup>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>jersey-serlvet</servlet-name>
-		<url-pattern>/services/*</url-pattern>
-	</servlet-mapping>
 
 	<filter>
 		<filter-name>restAuthenticationFilter</filter-name>
