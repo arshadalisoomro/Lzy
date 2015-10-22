@@ -88,7 +88,7 @@ public class AuthenticationFilter implements Filter {
 			String userAgent = StringUtils.defaultString(request.getHeader("User-Agent"));
 			requestURI = requestURI + (StringUtils.isNotEmpty(queryString) ? ("?" + queryString) : StringUtils.EMPTY);
 			
-			LzyLog.getAccessAPILogger().debug(String.format("[%s] [%s] [%s] %s [%s]", userId, remoteAddr, method, requestURI, userAgent)); 
+			LzyLog.getAccessAPILogger().info(String.format("[%s] [%s] [%s] %s [%s]", userId, remoteAddr, method, requestURI, userAgent)); 
 		} catch (Exception e) {
 			LzyLog.getAccessAPILogger().warn("AccessAPI logger error: " + e.getMessage(), e);
 		}
