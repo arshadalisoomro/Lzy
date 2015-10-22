@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import free.lzy.common.Code;
 import free.lzy.common.FailResult;
+import free.lzy.common.JSONFilter;
 import free.lzy.entity.dto.Book;
 import free.lzy.service.BookService;
 import free.lzy.service.exception.ServiceException;
@@ -46,7 +47,7 @@ public class BookResource {
 			// 调用业务层处理
 			Book book = bookService.queryBook(id);
 			if (book != null) {
-				repsonse = JSONObject.toJSONString(book);
+				repsonse = JSONObject.toJSONString(book, JSONFilter.NULLFILTER);
 			} else {
 				repsonse = FailResult.toJson(Code.PARAM_ERROR, "没有找到书籍");
 				status = HttpStatus.NOT_FOUND;
