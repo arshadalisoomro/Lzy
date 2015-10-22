@@ -24,6 +24,7 @@ import free.lzy.log.LzyLog;
 
 /**
  * 过滤器
+ * 		接口访问日志 & 身份验证 
  */
 public class AuthenticationFilter implements Filter {
 	
