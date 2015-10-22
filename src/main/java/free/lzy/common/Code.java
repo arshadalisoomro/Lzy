@@ -25,9 +25,14 @@ public enum Code {
 	PARAM_ERROR("20000"),
 	
 	/**
-	 * 未登录 或 Session过期
+	 * 用户未登录
 	 */
 	UNLOGIN("30000"),
+	
+	/**
+	 * 会话已过期
+	 */
+	SESSION_TIMEOUT("30001"),
 
 	/**
 	 * 系统异常

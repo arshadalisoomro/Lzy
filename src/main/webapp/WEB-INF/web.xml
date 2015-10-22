@@ -60,7 +60,7 @@
 
 	<filter>
 		<filter-name>restAuthenticationFilter</filter-name>
-		<filter-class>free.lzy.filter.RestAuthenticationFilter</filter-class>
+		<filter-class>free.lzy.filter.AuthenticationFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
