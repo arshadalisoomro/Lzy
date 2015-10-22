@@ -35,6 +35,9 @@ public class RestAuthenticationFilter implements Filter {
 		
 		logAccessAPI(request);
 		
+		// TODO 登录状态验证
+		// TODO 权限验证
+		
 		chain.doFilter(request, response);
 	}
 	
