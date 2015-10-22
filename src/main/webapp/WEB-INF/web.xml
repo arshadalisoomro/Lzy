@@ -58,13 +58,16 @@
 		<url-pattern>/services/*</url-pattern>
 	</filter-mapping>
 
-	<filter>
-		<filter-name>restAuthenticationFilter</filter-name>
-		<filter-class>free.lzy.filter.AuthenticationFilter</filter-class>
-	</filter>
+	<!-- 身份验证、访问日志过滤器  -->
+	<!-- 
+		<filter>
+			<filter-name>authenticationFilter</filter-name>
+			<filter-class>free.lzy.filter.AuthenticationFilter</filter-class>
+		</filter>
 
-	<filter-mapping>
-		<filter-name>restAuthenticationFilter</filter-name>
-		<url-pattern>/services/*</url-pattern>
-	</filter-mapping>
+		<filter-mapping>
+			<filter-name>authenticationFilter</filter-name>
+			<url-pattern>/services/*</url-pattern>
+		</filter-mapping>
+	-->
 </web-app>

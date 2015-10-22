@@ -28,5 +28,7 @@
 			localhost:8080/Lzy/services/book/queryBook/1
 			localhost:8080/Lzy/services/book/queryBook/-1
 			localhost:8080/Lzy/services/book/queryBook/2
+	5. Open Authentication & Access log
+			modify web.xml 
 
 
