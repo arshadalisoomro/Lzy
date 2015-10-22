@@ -35,6 +35,6 @@ public class FailResult {
 	}
 	
 	public static String toJson(Code code, String msg) {
-		return JSONObject.toJSONString(new FailResult(code.getCode(), msg));
+		return JSONObject.toJSONString(new FailResult(code.getCode(), msg), JSONFilter.NULLFILTER);
 	}
 }
