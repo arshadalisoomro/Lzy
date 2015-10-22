@@ -32,12 +32,15 @@ public class ExceptionAdvice {
 	@Around(value = "execution(public * free.lzy.rest.*.*(..))")
 	public Response around(ProceedingJoinPoint pjp) {
 		HttpStatus status = HttpStatus.BAD_REQUEST;
+		Code code = Code.BUSINESS_FAIL;
 
 		String repsonse = null;
 		try {
 			return (Response) pjp.proceed();
 		} catch (ServiceException e) {
 			BUSINESS_FAIL_LOGGER.error(e.getMessage(), e);
+			
+			code = e.getCode() == null ? code : e.getCode();
 			
 			repsonse = FailResult.toJson(Code.BUSINESS_FAIL, e.getMessage());
 		} catch (Throwable e) {
