@@ -1,5 +1,8 @@
 package free.lzy.common;
 
+/**
+ * Constants
+ */
 public final class Constants {
 
 	/**

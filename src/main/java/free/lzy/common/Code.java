@@ -2,9 +2,6 @@ package free.lzy.common;
 
 /**
  * 响应结果状态码
- * @ClassName Code
- * @date 2015-10-15
- * 
  * 
  * Code 规范：
  * 		1XXXX: 业务处理过程中发生错误

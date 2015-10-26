@@ -5,8 +5,7 @@ import org.apache.commons.lang.StringUtils;
 import com.alibaba.fastjson.serializer.ValueFilter;
 
 /**
- * @ClassName JSONFilter
- * @date 2015-10-19
+ * JSONFilter
  */
 public class JSONFilter {
 

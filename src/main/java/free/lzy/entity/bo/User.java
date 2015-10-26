@@ -2,8 +2,6 @@ package free.lzy.entity.bo;
 
 /**
  * User
- * 
- * @ClassName User
  */
 public class User {
 	

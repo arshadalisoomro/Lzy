@@ -9,8 +9,6 @@ import free.lzy.entity.dto.Book;
 
 /**
  * Demo: BookService
- * @ClassName BookService
- * @date 2015-10-15
  */
 @Service
 public class BookService {

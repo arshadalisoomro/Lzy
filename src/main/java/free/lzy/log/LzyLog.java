@@ -3,9 +3,7 @@ package free.lzy.log;
 import org.apache.log4j.Logger;
 
 /**
- * @ClassName LzyLog
- * @Description 统一日志工具类
- * @date 2015-10-15
+ * 统一日志工具类
  */
 public class LzyLog {
 
@@ -31,7 +29,6 @@ public class LzyLog {
 	 * 获取RestApi Logger
 	 * @Title: getAccessAPILogger 
 	 * @return RestApi Logger
-	 * @Date 2015-7-28
 	 */
 	public static Logger getAccessAPILogger() {
 		return ACCESS_API;
@@ -41,7 +38,6 @@ public class LzyLog {
 	 * 获取RestError Logger
 	 * @Title: getRestErrorLogger 
 	 * @return RestError Logger
-	 * @Date 2015-10-16
 	 */
 	public static Logger getRestErrorLogger() {
 		return REST_ERROR;
@@ -51,7 +47,6 @@ public class LzyLog {
 	 * 获取BusinessFail Logger
 	 * @Title: getBusinessFailLogger 
 	 * @return BusinessFail Logger
-	 * @Date 2015-10-16
 	 */
 	public static Logger getBusinessFailLogger() {
 		return BUSINESS_FAIL;

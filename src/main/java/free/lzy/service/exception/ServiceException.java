@@ -4,8 +4,6 @@ import free.lzy.common.Code;
 
 /**
  * 业务异常
- * @ClassName ServiceException
- * @date 2015-10-16
  */
 public class ServiceException extends Exception {
 

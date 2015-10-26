@@ -2,8 +2,6 @@ package free.lzy.entity.dto;
 
 /**
  * Demo: Book
- * @ClassName Book
- * @date 2015-10-15
  */
 public class Book {
 	

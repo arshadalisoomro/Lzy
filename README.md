@@ -24,11 +24,11 @@
 	1. Modify "jdbc.propertis"
 	2. Exec "file/demo_db.sql"
 	3. Deployed to the server(Tomcat)
-	4. Access path:
-			http://localhost:8080/Lzy/services/book/queryBook/1
-			http://localhost:8080/Lzy/services/book/queryBook/-1
-			http://localhost:8080/Lzy/services/book/queryBook/2
-	5. Open Authentication & Access log
+	4. Access path (Get):
+			http://localhost:8080/Lzy/services/book/1
+			http://localhost:8080/Lzy/services/book/-1
+			http://localhost:8080/Lzy/services/book/2
+	5. Open LoginFilter
 			modify web.xml 
 
 

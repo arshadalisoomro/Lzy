@@ -22,8 +22,6 @@ import free.lzy.service.exception.ServiceException;
 
 /**
  * Demo: Book Resource
- * @ClassName BookResources
- * @date 2015-10-15
  */
 @Path("book")
 @Component
@@ -33,7 +31,7 @@ public class BookResource {
 	private BookService bookService;
 	
 	@GET
-	@Path("/queryBook/{id}")
+	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response queryBook(@PathParam("id") int id) throws ServiceException {
 		HttpStatus status = HttpStatus.OK;
@@ -62,7 +60,6 @@ public class BookResource {
 	 * @Title: checkParam 
 	 * @param id
 	 * @return true/false 通过/不通过
-	 * @Date 2015-10-16
 	 */
 	private boolean checkParam(int id) {
 		return id > 0;

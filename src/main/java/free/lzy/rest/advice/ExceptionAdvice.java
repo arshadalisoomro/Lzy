@@ -17,9 +17,6 @@ import free.lzy.service.exception.ServiceException;
 /**
  * Common AOP
  * 		异常统一处理AOP
- * 
- * @ClassName ExceptionAdvice
- * @date 2015-10-16
  */
 @Aspect
 @Component
