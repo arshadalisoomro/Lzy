@@ -10,6 +10,10 @@
 	<properties>
 		<filename>Lzy</filename>
 		
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
+		
 		<servlet-api.version>2.5</servlet-api.version>
 		<jersey.version>1.4</jersey.version>
 		<jersey-spring.version>1.4</jersey-spring.version>
