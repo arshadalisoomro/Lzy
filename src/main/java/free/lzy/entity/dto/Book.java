@@ -5,19 +5,19 @@ package free.lzy.entity.dto;
  */
 public class Book {
 	
-	private int id;
+	private Integer id;
 	
 	private String name;
 	
 	private String author;
 	
-	private float price;
+	private Float price;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -37,11 +37,11 @@ public class Book {
 		this.author = author;
 	}
 
-	public float getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 }
