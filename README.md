@@ -22,12 +22,15 @@
 
 ####Run demo
 	1. Modify "jdbc.propertis"
-	2. Exec "file/demo_db.sql"
+	2. Exec "file/lzy_db.sql"
 	3. Deployed to the server(Tomcat)
 	4. Access path (Get):
+			http://localhost:8080/Lzy/services/book
 			http://localhost:8080/Lzy/services/book/1
 			http://localhost:8080/Lzy/services/book/-1
-			http://localhost:8080/Lzy/services/book/2
+			http://localhost:8080/Lzy/services/book/200
+			...
+			
 	5. Open LoginFilter
 			modify web.xml 
 

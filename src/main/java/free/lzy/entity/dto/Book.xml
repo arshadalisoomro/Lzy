@@ -39,7 +39,7 @@
 		WHERE id= #{id}
 	</select>
 
-	<select id="queryAll" resultType="java.util.List">
+	<select id="queryAll" resultType="free.lzy.entity.dto.Book">
 		SELECT * 
 		FROM book 
 	</select>
