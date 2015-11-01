@@ -21,9 +21,9 @@
 
 
 ####Run demo
-	1. Modify "jdbc.propertis"
+	1. Exec "file/lzy_db.sql"
 	
-	2. Exec "file/lzy_db.sql"
+	2. Modify "jdbc.propertis"	
 	
 	3. Deployed to the server(Tomcat)
 	
