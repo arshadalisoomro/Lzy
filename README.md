@@ -22,8 +22,11 @@
 
 ####Run demo
 	1. Modify "jdbc.propertis"
+	
 	2. Exec "file/lzy_db.sql"
+	
 	3. Deployed to the server(Tomcat)
+	
 	4. Access path (Get):
 			http://localhost:8080/Lzy/services/book
 			http://localhost:8080/Lzy/services/book/1
@@ -33,5 +36,12 @@
 			
 	5. Open LoginFilter
 			modify web.xml 
-
+			
+	6. Example rest code:
+			free.lzy.rest.BookResource
+				add(Post)
+				delete(Delete)
+				update(Put)
+				query(Get)
+				queryAll(Get)
 
