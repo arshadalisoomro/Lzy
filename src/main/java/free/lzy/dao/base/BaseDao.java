@@ -32,11 +32,18 @@ public interface BaseDao<T> {
 	public T query(int id);
 	
 	/**
+	 * 通过字段匹配查询Entity
+	 * @Title: queryMatch
+	 * @param entity
+	 * @return lstEntity
+	 */
+	public List<T> queryMatch(T entity);
+	
+	/**
 	 * 查询所有Entity
 	 * @Title: queryAll 
 	 * @param id
 	 * @return lstEntity
 	 */
 	public List<T> queryAll();
-	
 }

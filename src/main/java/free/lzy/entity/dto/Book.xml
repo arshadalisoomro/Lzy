@@ -39,6 +39,24 @@
 		WHERE id= #{id}
 	</select>
 
+	<select id="queryMatch" parameterType="free.lzy.entity.dto.Book" resultType="free.lzy.entity.dto.Book">
+		SELECT * 
+		FROM book 
+		WHERE 1 = 1 
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="name != null">
+				and name = #{name}
+			</if>
+			<if test="author != null">
+				and author = #{author}
+			</if>
+			<if test="price != null">
+				and price = #{price}
+			</if>
+	</select>
+
 	<select id="queryAll" resultType="free.lzy.entity.dto.Book">
 		SELECT * 
 		FROM book 
