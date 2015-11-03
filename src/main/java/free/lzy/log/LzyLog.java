@@ -26,9 +26,14 @@ public class LzyLog {
 	private static final Logger BUSINESS_FAIL = Logger.getLogger("business_fail");
 	
 	/**
+	 * Get Logger
+	 */
+	public static Logger getLogger(Class<?> clazz) {
+		return Logger.getLogger(clazz);
+	}
+	
+	/**
 	 * 获取RestApi Logger
-	 * @Title: getAccessAPILogger 
-	 * @return RestApi Logger
 	 */
 	public static Logger getAccessAPILogger() {
 		return ACCESS_API;
@@ -36,8 +41,6 @@ public class LzyLog {
 	
 	/**
 	 * 获取RestError Logger
-	 * @Title: getRestErrorLogger 
-	 * @return RestError Logger
 	 */
 	public static Logger getRestErrorLogger() {
 		return REST_ERROR;
@@ -45,8 +48,6 @@ public class LzyLog {
 	
 	/**
 	 * 获取BusinessFail Logger
-	 * @Title: getBusinessFailLogger 
-	 * @return BusinessFail Logger
 	 */
 	public static Logger getBusinessFailLogger() {
 		return BUSINESS_FAIL;
