@@ -23,7 +23,7 @@
 ####Run demo
 	1. Exec "file/lzy_db.sql"
 	
-	2. Modify "jdbc.propertis"	
+	2. Modify "filters/dev/jdbc.propertis"	
 	
 	3. Deployed to the server(Tomcat)
 	
