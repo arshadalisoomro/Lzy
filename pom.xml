@@ -160,10 +160,32 @@
 			<version>${commons-lang.version}</version>
 		</dependency>
 	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env>dev</env>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<profile>
+			<id>sc</id>
+			<properties>
+				<env>sc</env>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<finalName>${filename}</finalName>
 		
+		<filters>
+			<filter>filters/${env}/jdbc.properties</filter>
+		</filters>
 		<resources>
 			<resource>
 				<directory>src/main/java</directory>
@@ -173,6 +195,7 @@
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
 			</resource>
 		</resources>
 	</build>
