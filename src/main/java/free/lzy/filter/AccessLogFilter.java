@@ -49,8 +49,12 @@ public class AccessLogFilter implements Filter {
 			String remoteAddr = request.getRemoteAddr();
 			String method = request.getMethod(); 
 			String requestURI = request.getRequestURI();
-			String queryString = URLDecoder.decode(request.getQueryString(), Constants.CHARSET);
 			String userAgent = StringUtils.defaultString(request.getHeader("User-Agent"));
+			
+			String queryString = request.getQueryString();
+			if (queryString != null) {
+				queryString = URLDecoder.decode(request.getQueryString(), Constants.CHARSET);
+			}
 			requestURI = requestURI + (StringUtils.isNotEmpty(queryString) ? ("?" + queryString) : StringUtils.EMPTY);
 			
 			LzyLog.getAccessAPILogger().info(String.format("[%s] [%s] [%s] %s [%s]", userId, remoteAddr, method, requestURI, userAgent)); 
