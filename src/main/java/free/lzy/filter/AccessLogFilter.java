@@ -1,6 +1,7 @@
 package free.lzy.filter;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -48,7 +49,7 @@ public class AccessLogFilter implements Filter {
 			String remoteAddr = request.getRemoteAddr();
 			String method = request.getMethod(); 
 			String requestURI = request.getRequestURI();
-			String queryString = request.getQueryString();
+			String queryString = URLDecoder.decode(request.getQueryString(), Constants.CHARSET);
 			String userAgent = StringUtils.defaultString(request.getHeader("User-Agent"));
 			requestURI = requestURI + (StringUtils.isNotEmpty(queryString) ? ("?" + queryString) : StringUtils.EMPTY);
 			

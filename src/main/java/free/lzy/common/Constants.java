@@ -20,4 +20,8 @@ public final class Constants {
 	 */
 	public static final String SESSION_USER = "SESSION_USER";
 	
+	/**
+	 * 系统编码
+	 */
+	public static final String CHARSET = "UTF-8";
 }
