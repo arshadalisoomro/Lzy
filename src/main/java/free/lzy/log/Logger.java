@@ -4,7 +4,7 @@ import org.slf4j.LoggerFactory;
 
 public class Logger {
 	
-private org.slf4j.Logger logger;
+	private org.slf4j.Logger logger;
 	
 	private Logger(org.slf4j.Logger logger) {
 		this.logger = logger;
