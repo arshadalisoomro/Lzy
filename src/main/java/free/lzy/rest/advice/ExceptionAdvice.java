@@ -2,7 +2,6 @@ package free.lzy.rest.advice;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import free.lzy.common.Code;
 import free.lzy.common.FailResult;
+import free.lzy.log.Logger;
 import free.lzy.log.LzyLog;
 import free.lzy.service.exception.ServiceException;
 
