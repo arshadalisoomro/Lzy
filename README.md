@@ -14,8 +14,8 @@
 	Mysql-connector-5.1.6
 	C3p0-0.9.1
 	
+	Slf4j-1.7.0
 	Fastjson-1.2.6
-	Log4j-1.2.17
 	
 	...
 
