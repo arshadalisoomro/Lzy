@@ -1,7 +1,7 @@
 
 
 # Lzy
-> A simple framework (Restful).
+> A simple web framework (Restful).
 
 
 #####Base Component
