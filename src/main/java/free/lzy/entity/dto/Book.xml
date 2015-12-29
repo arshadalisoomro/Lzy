@@ -10,6 +10,17 @@
 			#{id}, #{name}, #{author}, #{price}
 		)
 	</insert>
+	
+	<insert id="addBatch" parameterType="java.util.List">
+		INSERT INTO book (
+			id, name, author, price
+		) VALUES 
+			<foreach collection="list" item="item" separator="," >  
+				(
+					#{item.id}, #{item.name}, #{item.author}, #{item.price}
+				)
+			</foreach>
+	</insert>
 
 	<delete id="delete" parameterType="int">
 		DELETE 

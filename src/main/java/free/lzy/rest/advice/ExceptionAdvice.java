@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import free.lzy.common.Code;
 import free.lzy.common.FailResult;
 import free.lzy.log.Logger;
-import free.lzy.log.LzyLog;
 import free.lzy.service.exception.ServiceException;
 
 /**
@@ -22,9 +21,9 @@ import free.lzy.service.exception.ServiceException;
 @Component
 public class ExceptionAdvice {
 	
-	private static final Logger REST_ERROR_LOGGER = LzyLog.getRestErrorLogger();
+	private static final Logger REST_ERROR_LOGGER = Logger.getRestErrorLogger();
 
-	private static final Logger BUSINESS_FAIL_LOGGER = LzyLog.getBusinessFailLogger();
+	private static final Logger BUSINESS_FAIL_LOGGER = Logger.getBusinessFailLogger();
 
 	@Around(value = "execution(public * free.lzy.rest.*.*(..))")
 	public Response around(ProceedingJoinPoint pjp) {

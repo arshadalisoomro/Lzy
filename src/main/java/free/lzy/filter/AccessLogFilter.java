@@ -16,7 +16,7 @@ import org.apache.commons.lang.StringUtils;
 
 import free.lzy.common.Constants;
 import free.lzy.entity.bo.User;
-import free.lzy.log.LzyLog;
+import free.lzy.log.Logger;
 
 /**
  * 访问日志过滤器
@@ -57,9 +57,9 @@ public class AccessLogFilter implements Filter {
 			}
 			requestURI = requestURI + (StringUtils.isNotEmpty(queryString) ? ("?" + queryString) : StringUtils.EMPTY);
 			
-			LzyLog.getAccessAPILogger().info(String.format("[%s] [%s] [%s] %s [%s]", userId, remoteAddr, method, requestURI, userAgent)); 
+			Logger.getAccessAPILogger().info(String.format("[%s] [%s] [%s] %s [%s]", userId, remoteAddr, method, requestURI, userAgent)); 
 		} catch (Exception e) {
-			LzyLog.getAccessAPILogger().warn("AccessAPI logger error: " + e.getMessage(), e);
+			Logger.getAccessAPILogger().warn("AccessAPI logger error: " + e.getMessage(), e);
 		}
 	}
 }
