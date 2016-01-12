@@ -13,7 +13,7 @@
 	<developers>
 		<developer>
 			<name>Adar.w</name>
-			<email>Adar-w@outlook.com</email>
+			<email>adar-w@outlook.com</email>
 		</developer>
 	</developers>
 
@@ -24,6 +24,7 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
 		
+		<jetty.version>9.0.0.RC0</jetty.version>
 		<servlet-api.version>2.5</servlet-api.version>
 		<jersey.version>1.4</jersey.version>
 		<jersey-spring.version>1.4</jersey-spring.version>
@@ -213,5 +214,22 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version>
+				<configuration>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/${filename}</contextPath>
+					</webApp>
+					<httpConnector>
+						<port>8080</port>
+					</httpConnector>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
