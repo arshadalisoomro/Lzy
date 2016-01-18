@@ -61,11 +61,12 @@ public class LoginFilter implements Filter {
 	private boolean loginCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		boolean flag = true;
 		
+		HttpSession session = request.getSession(false);
 		if (request.getRequestURI().endsWith(Constants.URL_LOGIN)) {
-			// Flag = true.
+			if (session != null) {
+				session.invalidate();
+			}
 		} else {
-			// 判断登录状态
-			HttpSession session = request.getSession(false);
 			if (session != null) {
 				User user = (User) session.getAttribute(Constants.SESSION_USER);
 				if (user == null) {
