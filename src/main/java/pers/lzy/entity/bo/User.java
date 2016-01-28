@@ -15,23 +15,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.dao.base;
+package pers.lzy.entity.bo;
 
-import java.util.List;
+/**
+ * User
+ */
+public class User {
+	
+	private String id;
+	
+	private String name;
 
-public interface BaseDao<T> {
+	public String getId() {
+		return id;
+	}
 
-	void add(T entity);
-	
-	void addBatch(List<T> entitys);
-	
-	void delete(int id);
-	
-	void update(T entity);
-	
-	T query(int id);
-	
-	List<T> queryMatch(T entity);
-	
-	List<T> queryAll();
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

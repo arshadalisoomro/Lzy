@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.filter;
+package pers.lzy.filter;
 
 import java.io.IOException;
 import java.net.URLDecoder;
@@ -31,9 +31,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 
-import free.lzy.common.Constants;
-import free.lzy.entity.bo.User;
-import free.lzy.log.Logger;
+import pers.lzy.common.Constants;
+import pers.lzy.entity.bo.User;
+import pers.lzy.log.Logger;
 
 /**
  * 访问日志过滤器

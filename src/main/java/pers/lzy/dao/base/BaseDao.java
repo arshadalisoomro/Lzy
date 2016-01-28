@@ -15,43 +15,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.service;
+package pers.lzy.dao.base;
 
 import java.util.List;
 
-import javax.annotation.Resource;
+public interface BaseDao<T> {
 
-import org.springframework.stereotype.Service;
-
-import free.lzy.dao.BookDao;
-import free.lzy.entity.dto.Book;
-
-/**
- * Demo: BookService
- */
-@Service
-public class BookService {
-
-	@Resource
-	private BookDao bookDao;
+	void add(T entity);
 	
-	public void add(Book book) {
-		bookDao.add(book);
-	}
-
-	public void delete(int id) {
-		bookDao.delete(id);
-	}
-
-	public void update(Book book) {
-		bookDao.update(book);
-	}
+	void addBatch(List<T> entitys);
 	
-	public Book query(int id) {
-		return bookDao.query(id);
-	}
+	void delete(int id);
 	
-	public List<Book> queryAll() {
-		return bookDao.queryAll();
-	}
+	void update(T entity);
+	
+	T query(int id);
+	
+	List<T> queryMatch(T entity);
+	
+	List<T> queryAll();
 }

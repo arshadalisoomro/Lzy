@@ -15,9 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.service.exception;
+package pers.lzy.service.exception;
 
-import free.lzy.common.Code;
+import pers.lzy.common.Code;
 
 /**
  * 业务异常

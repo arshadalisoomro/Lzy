@@ -15,41 +15,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.common;
+package pers.lzy.service;
 
-import com.alibaba.fastjson.JSONObject;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import pers.lzy.dao.BookDao;
+import pers.lzy.entity.dto.Book;
 
 /**
- * 业务失败响应体
+ * Demo: BookService
  */
-public class FailResult {
+@Service
+public class BookService {
 
-	private String code;
+	@Resource
+	private BookDao bookDao;
 	
-	private String msg;
-	
-	private FailResult(String code, String msg) {
-		this.code = code;
-		this.msg = msg;
+	public void add(Book book) {
+		bookDao.add(book);
 	}
 
-	public String getCode() {
-		return code;
+	public void delete(int id) {
+		bookDao.delete(id);
 	}
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void update(Book book) {
+		bookDao.update(book);
 	}
 	
-	public static String toJson(Code code, String msg) {
-		return JSONObject.toJSONString(new FailResult(code.getCode(), msg), JSONFilter.NULLFILTER);
+	public Book query(int id) {
+		return bookDao.query(id);
+	}
+	
+	public List<Book> queryAll() {
+		return bookDao.queryAll();
 	}
 }

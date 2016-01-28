@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.common;
+package pers.lzy.common;
 
 /**
  * 响应结果状态码

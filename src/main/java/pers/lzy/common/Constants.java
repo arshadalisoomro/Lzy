@@ -15,14 +15,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.dao;
-
-import free.lzy.dao.base.BaseDao;
-import free.lzy.entity.dto.Book;
+package pers.lzy.common;
 
 /**
- * Demo: Book Dao
+ * Constants
  */
-public interface BookDao extends BaseDao<Book>{
+public final class Constants {
 
+	/**
+	 * 系统运行时路径
+	 */
+	public static final String WEB_ROOT = System.getProperty("webapp.root");
+	
+	/**
+	 * 系统登录路径
+	 */
+	public static final String URL_LOGIN = "/services/login";
+	
+	/**
+	 * 当前登录用户SESSION KEY
+	 */
+	public static final String SESSION_USER = "SESSION_USER";
+	
+	/**
+	 * 系统编码
+	 */
+	public static final String CHARSET = "UTF-8";
 }

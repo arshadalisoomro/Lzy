@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.rest;
+package pers.lzy.rest;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -35,12 +35,12 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSONObject;
 
-import free.lzy.common.Code;
-import free.lzy.common.FailResult;
-import free.lzy.common.JSONFilter;
-import free.lzy.entity.dto.Book;
-import free.lzy.service.BookService;
-import free.lzy.service.exception.ServiceException;
+import pers.lzy.common.Code;
+import pers.lzy.common.FailResult;
+import pers.lzy.common.JSONFilter;
+import pers.lzy.entity.dto.Book;
+import pers.lzy.service.BookService;
+import pers.lzy.service.exception.ServiceException;
 
 /**
  * Demo: Book Resource

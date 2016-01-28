@@ -15,30 +15,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.common;
+package pers.lzy.common;
+
+import com.alibaba.fastjson.JSONObject;
 
 /**
- * Constants
+ * 业务失败响应体
  */
-public final class Constants {
+public class FailResult {
 
-	/**
-	 * 系统运行时路径
-	 */
-	public static final String WEB_ROOT = System.getProperty("webapp.root");
+	private String code;
 	
-	/**
-	 * 系统登录路径
-	 */
-	public static final String URL_LOGIN = "/services/login";
+	private String msg;
 	
-	/**
-	 * 当前登录用户SESSION KEY
-	 */
-	public static final String SESSION_USER = "SESSION_USER";
+	private FailResult(String code, String msg) {
+		this.code = code;
+		this.msg = msg;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 	
-	/**
-	 * 系统编码
-	 */
-	public static final String CHARSET = "UTF-8";
+	public static String toJson(Code code, String msg) {
+		return JSONObject.toJSONString(new FailResult(code.getCode(), msg), JSONFilter.NULLFILTER);
+	}
 }

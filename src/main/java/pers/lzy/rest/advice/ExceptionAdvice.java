@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.rest.advice;
+package pers.lzy.rest.advice;
 
 import javax.ws.rs.core.Response;
 
@@ -25,10 +25,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import free.lzy.common.Code;
-import free.lzy.common.FailResult;
-import free.lzy.log.Logger;
-import free.lzy.service.exception.ServiceException;
+import pers.lzy.common.Code;
+import pers.lzy.common.FailResult;
+import pers.lzy.log.Logger;
+import pers.lzy.service.exception.ServiceException;
 
 /**
  * Common AOP

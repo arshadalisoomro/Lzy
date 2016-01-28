@@ -15,22 +15,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package free.lzy.entity.bo;
+package pers.lzy.entity.dto;
 
 /**
- * User
+ * Demo: Book
  */
-public class User {
+public class Book {
 	
-	private String id;
+	private Integer id;
 	
 	private String name;
+	
+	private String author;
+	
+	private Float price;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -40,5 +44,21 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Float getPrice() {
+		return price;
+	}
+
+	public void setPrice(Float price) {
+		this.price = price;
 	}
 }
