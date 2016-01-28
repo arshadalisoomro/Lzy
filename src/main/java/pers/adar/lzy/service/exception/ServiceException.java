@@ -15,9 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pers.lzy.service.exception;
+package pers.adar.lzy.service.exception;
 
-import pers.lzy.common.Code;
+import pers.adar.lzy.common.Code;
 
 /**
  * 业务异常

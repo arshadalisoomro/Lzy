@@ -15,30 +15,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pers.lzy.entity.bo;
+package pers.adar.lzy.common;
+
+import com.alibaba.fastjson.JSONObject;
 
 /**
- * User
+ * 业务失败响应体
  */
-public class User {
+public class FailResult {
+
+	private String code;
 	
-	private String id;
+	private String msg;
 	
-	private String name;
-
-	public String getId() {
-		return id;
+	private FailResult(String code, String msg) {
+		this.code = code;
+		this.msg = msg;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public String getCode() {
+		return code;
 	}
 
-	public String getName() {
-		return name;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
+	public static String toJson(Code code, String msg) {
+		return JSONObject.toJSONString(new FailResult(code.getCode(), msg), JSONFilter.NULLFILTER);
 	}
 }

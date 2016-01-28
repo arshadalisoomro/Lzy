@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pers.lzy.filter;
+package pers.adar.lzy.filter;
 
 import java.io.IOException;
 
@@ -32,10 +32,10 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.http.HttpStatus;
 
-import pers.lzy.common.Code;
-import pers.lzy.common.Constants;
-import pers.lzy.common.FailResult;
-import pers.lzy.entity.bo.User;
+import pers.adar.lzy.common.Code;
+import pers.adar.lzy.common.Constants;
+import pers.adar.lzy.common.FailResult;
+import pers.adar.lzy.entity.bo.User;
 
 /**
  * 登录过滤器

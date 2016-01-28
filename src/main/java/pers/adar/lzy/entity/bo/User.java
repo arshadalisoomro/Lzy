@@ -15,54 +15,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pers.lzy.common;
+package pers.adar.lzy.entity.bo;
 
 /**
- * 响应结果状态码
- * 
- * Code 规范：
- * 		1XXXX: 业务处理过程中发生错误
- * 		2XXXX: 调用者方调用方式有误
- * 		3XXXX: 与业务无关的其他错误
- * 		4XXXX: 系统错误
+ * User
  */
-public enum Code {
+public class User {
 	
-	/**
-	 * 业务失败
-	 */
-	BUSINESS_FAIL("10000"), 
+	private String id;
 	
-	/**
-	 * 参数有误
-	 */
-	PARAM_ERROR("20000"),
-	
-	/**
-	 * 用户未登录
-	 */
-	UNLOGIN("30000"),
-	
-	/**
-	 * 会话已过期
-	 */
-	SESSION_TIMEOUT("30001"),
+	private String name;
 
-	/**
-	 * 系统异常
-	 */
-	ERROR("40000");
-	
-	/**
-	 * 状态码
-	 */
-	private String code;
-	
-	private Code(String code) {
-		this.code = code;
+	public String getId() {
+		return id;
 	}
 
-	public String getCode() {
-		return code;
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

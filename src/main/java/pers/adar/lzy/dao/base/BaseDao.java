@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pers.lzy.dao.base;
+package pers.adar.lzy.dao.base;
 
 import java.util.List;
 

@@ -15,43 +15,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pers.lzy.service;
-
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Service;
-
-import pers.lzy.dao.BookDao;
-import pers.lzy.entity.dto.Book;
+package pers.adar.lzy.common;
 
 /**
- * Demo: BookService
+ * Constants
  */
-@Service
-public class BookService {
+public final class Constants {
 
-	@Resource
-	private BookDao bookDao;
+	/**
+	 * 系统运行时路径
+	 */
+	public static final String WEB_ROOT = System.getProperty("webapp.root");
 	
-	public void add(Book book) {
-		bookDao.add(book);
-	}
-
-	public void delete(int id) {
-		bookDao.delete(id);
-	}
-
-	public void update(Book book) {
-		bookDao.update(book);
-	}
+	/**
+	 * 系统登录路径
+	 */
+	public static final String URL_LOGIN = "/services/login";
 	
-	public Book query(int id) {
-		return bookDao.query(id);
-	}
+	/**
+	 * 当前登录用户SESSION KEY
+	 */
+	public static final String SESSION_USER = "SESSION_USER";
 	
-	public List<Book> queryAll() {
-		return bookDao.queryAll();
-	}
+	/**
+	 * 系统编码
+	 */
+	public static final String CHARSET = "UTF-8";
 }

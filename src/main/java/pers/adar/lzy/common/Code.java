@@ -15,41 +15,54 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pers.lzy.common;
-
-import com.alibaba.fastjson.JSONObject;
+package pers.adar.lzy.common;
 
 /**
- * 业务失败响应体
+ * 响应结果状态码
+ * 
+ * Code 规范：
+ * 		1XXXX: 业务处理过程中发生错误
+ * 		2XXXX: 调用者方调用方式有误
+ * 		3XXXX: 与业务无关的其他错误
+ * 		4XXXX: 系统错误
  */
-public class FailResult {
+public enum Code {
+	
+	/**
+	 * 业务失败
+	 */
+	BUSINESS_FAIL("10000"), 
+	
+	/**
+	 * 参数有误
+	 */
+	PARAM_ERROR("20000"),
+	
+	/**
+	 * 用户未登录
+	 */
+	UNLOGIN("30000"),
+	
+	/**
+	 * 会话已过期
+	 */
+	SESSION_TIMEOUT("30001"),
 
+	/**
+	 * 系统异常
+	 */
+	ERROR("40000");
+	
+	/**
+	 * 状态码
+	 */
 	private String code;
 	
-	private String msg;
-	
-	private FailResult(String code, String msg) {
+	private Code(String code) {
 		this.code = code;
-		this.msg = msg;
 	}
 
 	public String getCode() {
 		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-	
-	public static String toJson(Code code, String msg) {
-		return JSONObject.toJSONString(new FailResult(code.getCode(), msg), JSONFilter.NULLFILTER);
 	}
 }
