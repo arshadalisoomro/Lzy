@@ -44,9 +44,9 @@ public class ExceptionAdvice {
 	private static final Logger BUSINESS_FAIL_LOGGER = Logger.getBusinessFailLogger();
 	
 	@Around(value = "execution(public * pers.adar.lzy.rest.*.*(..))")
-	public Response around(ProceedingJoinPoint pjp) {
+	public Object around(ProceedingJoinPoint pjp) {
 		try {
-			return (Response) pjp.proceed();
+			return pjp.proceed();
 		} catch (ServiceException exception) {
 			BUSINESS_FAIL_LOGGER.error(exception.getMessage(), exception);
 			
