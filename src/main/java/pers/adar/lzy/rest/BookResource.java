@@ -17,6 +17,8 @@
  */
 package pers.adar.lzy.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -27,17 +29,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson.JSONObject;
-
-import pers.adar.lzy.common.Code;
-import pers.adar.lzy.common.FailResult;
-import pers.adar.lzy.common.JSONFilter;
 import pers.adar.lzy.entity.dto.Book;
 import pers.adar.lzy.service.BookService;
 import pers.adar.lzy.service.exception.ServiceException;
@@ -56,87 +53,49 @@ public class BookResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response add(Book book) throws Exception {
-		HttpStatus status = HttpStatus.CREATED;
-
-		String response = StringUtils.EMPTY;
 		if (!checkParam(book, false)) {
-			status = HttpStatus.BAD_REQUEST;
-			response = FailResult.toJson(Code.PARAM_ERROR, "数据验证失败");
+			return Response.status(Status.BAD_REQUEST).build();
 		} else {
 			bookService.add(book);
+			return Response.status(Status.CREATED).build();
 		}
-
-		return Response.status(status.value()).entity(response).build();
 	}
 
 	@DELETE
-	@Path("{id}")
+	@Path("{id: [1-9][0-9]*}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response delete(@PathParam("id") int id) {
-		HttpStatus status = HttpStatus.OK;
-
-		String repsonse = StringUtils.EMPTY;
-		if (!checkParam(id)) {
-			status = HttpStatus.BAD_REQUEST;
-			repsonse = FailResult.toJson(Code.PARAM_ERROR, "Id有误");
-		} else {
-			bookService.delete(id);
-		}
-
-		return Response.status(status.value()).entity(repsonse).build();
+		bookService.delete(id);
+		
+		return Response.status(Status.ACCEPTED).build();
 	}
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response update(Book book) throws Exception {
-		HttpStatus status = HttpStatus.OK;
-
-		String response = StringUtils.EMPTY;
 		if (!checkParam(book, true)) {
-			status = HttpStatus.BAD_REQUEST;
-			response = FailResult.toJson(Code.PARAM_ERROR, "数据验证失败");
+			return Response.status(Status.BAD_REQUEST).build();
 		} else {
 			bookService.update(book);
+			
+			return Response.status(Status.ACCEPTED).build();
 		}
-
-		return Response.status(status.value()).entity(response).build();
 	}
 
 	@GET
-	@Path("{id}")
+	@Path("{id: [1-9][0-9]*}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response query(@PathParam("id") int id) throws ServiceException {
-		HttpStatus status = HttpStatus.OK;
+		Book book = bookService.query(id);
 
-		String repsonse = StringUtils.EMPTY;
-		if (!checkParam(id)) {
-			status = HttpStatus.BAD_REQUEST;
-			repsonse = FailResult.toJson(Code.PARAM_ERROR, "Id有误");
-		} else {
-			Book book = bookService.query(id);
-			if (book != null) {
-				repsonse = JSONObject.toJSONString(book, JSONFilter.NULLFILTER);
-			} else {
-				repsonse = FailResult.toJson(Code.PARAM_ERROR, "没有找到书籍");
-				status = HttpStatus.NOT_FOUND;
-			}
-		}
-
-		return Response.status(status.value()).entity(repsonse).build();
+		return book == null ? Response.status(Status.NOT_FOUND).build() : Response.ok(book).build();
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response queryAll() {
-		HttpStatus status = HttpStatus.OK;
-		String repsonse = JSONObject.toJSONString(bookService.queryAll(), JSONFilter.NULLFILTER);
-
-		return Response.status(status.value()).entity(repsonse).build();
-	}
-
-	private boolean checkParam(Integer id) {
-		return (id != null) && (id > 0);
+	public List<Book> queryAll() {
+		return bookService.queryAll();
 	}
 
 	private boolean checkParam(Book book, boolean isUpdate) {
@@ -144,7 +103,7 @@ public class BookResource {
 			return false;
 		}
 		if (isUpdate) {
-			return checkParam(book.getId());
+			return (book.getId() != null) && (book.getId() > 0);
 		}
 
 		return true;

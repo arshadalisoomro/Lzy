@@ -18,11 +18,12 @@
 package pers.adar.lzy.rest.advice;
 
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
+import org.apache.commons.lang.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import pers.adar.lzy.common.Code;
@@ -41,27 +42,32 @@ public class ExceptionAdvice {
 	private static final Logger REST_ERROR_LOGGER = Logger.getRestErrorLogger();
 
 	private static final Logger BUSINESS_FAIL_LOGGER = Logger.getBusinessFailLogger();
-
-	@Around(value = "execution(public * free.lzy.rest.*.*(..))")
+	
+	@Around(value = "execution(public * pers.adar.lzy.rest.*.*(..))")
 	public Response around(ProceedingJoinPoint pjp) {
-		HttpStatus status = HttpStatus.BAD_REQUEST;
-		Code code = Code.BUSINESS_FAIL;
-
-		String repsonse = null;
 		try {
 			return (Response) pjp.proceed();
-		} catch (ServiceException e) {
-			BUSINESS_FAIL_LOGGER.error(e.getMessage(), e);
+		} catch (ServiceException exception) {
+			BUSINESS_FAIL_LOGGER.error(exception.getMessage(), exception);
 			
-			code = e.getCode() == null ? code : e.getCode();
+			return Response.status(Status.BAD_REQUEST).entity(failEntity(exception)).build();
+		} catch (Throwable throwable) {
+			REST_ERROR_LOGGER.error(throwable.getMessage(), throwable);
 			
-			repsonse = FailResult.toJson(Code.BUSINESS_FAIL, e.getMessage());
-		} catch (Throwable e) {
-			REST_ERROR_LOGGER.error(e.getMessage(), e);
-
-			repsonse = FailResult.toJson(Code.ERROR, e.getMessage());
+			return Response.serverError().entity(failEntity(throwable)).build();
 		}
-
-		return Response.status(status.value()).entity(repsonse).build();
+	}
+	
+	private String failEntity(Throwable throwable) {
+		Code code = Code.ERROR;
+		String message = StringUtils.EMPTY;
+		if (throwable instanceof ServiceException) {
+			ServiceException serviceException = (ServiceException) throwable;
+			
+			code = serviceException.getCode() == null ? Code.BUSINESS_FAIL : serviceException.getCode();
+			message = serviceException.getMessage();
+		}
+		
+		return FailResult.toJson(code, message);
 	}
 }
