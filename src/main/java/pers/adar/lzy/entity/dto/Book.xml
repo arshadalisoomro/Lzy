@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="free.lzy.dao.BookDao">
+<mapper namespace="pers.adar.lzy.dao.BookDao">
 
-	<insert id="add" parameterType="free.lzy.entity.dto.Book">
+	<insert id="add">
 		INSERT INTO book (
 			id, name, author, price
 		) VALUES (
@@ -11,24 +11,24 @@
 		)
 	</insert>
 	
-	<insert id="addBatch" parameterType="java.util.List">
+	<insert id="addBatch">
 		INSERT INTO book (
 			id, name, author, price
 		) VALUES 
-			<foreach collection="list" item="item" separator="," >  
+			<foreach collection="list" item="item" separator=",">  
 				(
 					#{item.id}, #{item.name}, #{item.author}, #{item.price}
 				)
 			</foreach>
 	</insert>
 
-	<delete id="delete" parameterType="int">
+	<delete id="delete">
 		DELETE 
 		FROM book 
 		WHERE id= #{id}
 	</delete>
 	
-	<update id="update" parameterType="free.lzy.entity.dto.Book">
+	<update id="update">
 		UPDATE book
 		<set>
 			<if test="name != null">
@@ -44,13 +44,13 @@
 		WHERE id= #{id}
 	</update>
 
-	<select id="query" parameterType="int" resultType="free.lzy.entity.dto.Book">
+	<select id="query">
 		SELECT * 
 		FROM book 
 		WHERE id= #{id}
 	</select>
 
-	<select id="queryMatch" parameterType="free.lzy.entity.dto.Book" resultType="free.lzy.entity.dto.Book">
+	<select id="queryMatch">
 		SELECT * 
 		FROM book 
 		WHERE 1 = 1 
@@ -68,7 +68,7 @@
 			</if>
 	</select>
 
-	<select id="queryAll" resultType="free.lzy.entity.dto.Book">
+	<select id="queryAll">
 		SELECT * 
 		FROM book 
 	</select>
