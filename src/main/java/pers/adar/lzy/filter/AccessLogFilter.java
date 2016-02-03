@@ -74,9 +74,9 @@ public class AccessLogFilter implements Filter {
 			}
 			requestURI = requestURI + (StringUtils.isNotEmpty(queryString) ? ("?" + queryString) : StringUtils.EMPTY);
 			
-			Logger.getAccessAPILogger().info(String.format("[%s] [%s] [%s] %s [%s]", userId, remoteAddr, method, requestURI, userAgent)); 
+			Logger.getRestAccessLogger().info(String.format("[%s] [%s] [%s] %s [%s]", userId, remoteAddr, method, requestURI, userAgent)); 
 		} catch (Exception e) {
-			Logger.getAccessAPILogger().warn("AccessAPI logger error: " + e.getMessage(), e);
+			Logger.getRestAccessLogger().warn("AccessAPI logger error: " + e.getMessage(), e);
 		}
 	}
 }

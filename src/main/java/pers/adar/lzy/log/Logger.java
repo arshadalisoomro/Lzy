@@ -17,45 +17,43 @@
  */
 package pers.adar.lzy.log;
 
-import org.slf4j.LoggerFactory;
-
 public class Logger {
 	
-	private org.slf4j.Logger logger;
+	private org.apache.log4j.Logger logger;
 	
 	/*
-	 * RestApi日志 接口访问日志
+	 * RestAccess日志 接口访问日志
 	 */
-	private static final Logger ACCESS_API = Logger.getLogger("access_api");
+	private static final Logger REST_ACCESS = Logger.getLogger("rest_access");
 
 	/*
-	 * RestError日志 接口异常日志
+	 * RestFail日志 接口异常日志
 	 */
-	private static final Logger REST_ERROR = Logger.getLogger("rest_error");
+	private static final Logger REST_FAIL = Logger.getLogger("rest_fail");
 
 	/*
 	 * BusinessFail日志 业务失败日志
 	 */
 	private static final Logger BUSINESS_FAIL = Logger.getLogger("business_fail");
 	
-	private Logger(org.slf4j.Logger logger) {
+	private Logger(org.apache.log4j.Logger logger) {
 		this.logger = logger;
 	}
 
 	public static Logger getLogger(String logger) {
-		return new Logger(LoggerFactory.getLogger(logger));
+		return new Logger(org.apache.log4j.Logger.getLogger(logger));
 	}
 
 	public static Logger getLogger(Class<?> logger) {
 		return getLogger(logger.getName());
 	}
 
-	public static Logger getAccessAPILogger() {
-		return ACCESS_API;
+	public static Logger getRestAccessLogger() {
+		return REST_ACCESS;
 	}
 
-	public static Logger getRestErrorLogger() {
-		return REST_ERROR;
+	public static Logger getRestFailLogger() {
+		return REST_FAIL;
 	}
 
 	public static Logger getBusinessFailLogger() {

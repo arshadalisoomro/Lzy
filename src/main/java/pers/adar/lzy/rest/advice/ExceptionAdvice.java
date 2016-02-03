@@ -39,7 +39,7 @@ import pers.adar.lzy.service.exception.ServiceException;
 @Component
 public class ExceptionAdvice {
 	
-	private static final Logger REST_ERROR_LOGGER = Logger.getRestErrorLogger();
+	private static final Logger REST_ERROR_LOGGER = Logger.getRestFailLogger();
 
 	private static final Logger BUSINESS_FAIL_LOGGER = Logger.getBusinessFailLogger();
 	
