@@ -23,8 +23,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import pers.adar.lzy.dao.BookDao;
 import pers.adar.lzy.entity.dto.Book;
+import pers.adar.lzy.repository.BookRepository;
 
 /**
  * Demo: BookService
@@ -33,10 +33,10 @@ import pers.adar.lzy.entity.dto.Book;
 public class BookService {
 
 	@Resource
-	private BookDao bookDao;
+	private BookRepository bookDao;
 	
 	public void add(Book book) {
-		bookDao.add(book);
+		bookDao.save(book);
 	}
 
 	public void delete(int id) {
@@ -44,14 +44,14 @@ public class BookService {
 	}
 
 	public void update(Book book) {
-		bookDao.update(book);
+		bookDao.save(book);
 	}
 	
 	public Book query(int id) {
-		return bookDao.query(id);
+		return bookDao.findOne(id);
 	}
 	
 	public List<Book> queryAll() {
-		return bookDao.queryAll();
+		return bookDao.findAll();
 	}
 }

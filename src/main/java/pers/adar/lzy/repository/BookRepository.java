@@ -15,14 +15,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pers.adar.lzy.dao;
+package pers.adar.lzy.repository;
 
-import pers.adar.lzy.dao.base.BaseDao;
 import pers.adar.lzy.entity.dto.Book;
+import pers.adar.lzy.repository.base.BaseRepository;
 
 /**
  * Demo: Book Dao
  */
-public interface BookDao extends BaseDao<Book>{
+public interface BookRepository extends BaseRepository<Book, Integer>{
 
 }

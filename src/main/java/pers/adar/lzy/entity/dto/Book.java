@@ -17,11 +17,19 @@
  */
 package pers.adar.lzy.entity.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Demo: Book
  */
+@Entity(name = "book")
 public class Book {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	private String name;
