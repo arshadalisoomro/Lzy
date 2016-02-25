@@ -24,11 +24,14 @@
 
 
 ####Run demo
-	1. Create database	
+	1. Create database: 
+			lzy
 
-	2. Modify "filters/dev/jdbc.propertis"	
+	2. Modify: 
+			filters/dev/jdbc.propertis	
 	
-	3. Maven build: jetty:run
+	3. Maven build: 
+			jetty:run
 	
 	4. Access path (Get):
 			http://localhost:8080/Lzy/services/book
