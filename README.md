@@ -9,9 +9,10 @@
 	
 	Jetty-9.0.0.RC0
 
-	Spring-3.2.0.RELEASE
+	Spring-4.1.7.RELEASE
 	Jersey-1.4
-	Spring-data-JPA-1.3.0.RELEASE
+	Spring-data-JPA-1.7.0.RELEASE
+	Spring-security-4.0.3.RELEASE
 	
 	Mysql-connector-5.1.6
 	C3p0-0.9.1
