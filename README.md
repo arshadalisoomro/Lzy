@@ -34,6 +34,8 @@
 			jetty:run
 	
 	4. Access path (Get):
+			auth: admin:admin
+
 			http://localhost:8080/Lzy/services/book
 			http://localhost:8080/Lzy/services/book/1
 			http://localhost:8080/Lzy/services/book/-1
