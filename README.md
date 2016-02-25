@@ -6,10 +6,12 @@
 
 #####Base Component
 	Maven
+	
+	Jetty-9.0.0.RC0
 
 	Spring-3.2.0.RELEASE
 	Jersey-1.4
-	Mybatis-3.1.1
+	Spring-data-JPA-1.3.0.RELEASE
 	
 	Mysql-connector-5.1.6
 	C3p0-0.9.1
@@ -21,11 +23,11 @@
 
 
 ####Run demo
-	1. Exec "file/lzy_db.sql"
-	
+	1. Create database	
+
 	2. Modify "filters/dev/jdbc.propertis"	
 	
-	3. Deployed to the server(Tomcat)
+	3. Maven build: jetty:run
 	
 	4. Access path (Get):
 			http://localhost:8080/Lzy/services/book
@@ -34,10 +36,7 @@
 			http://localhost:8080/Lzy/services/book/200
 			...
 			
-	5. Open LoginFilter
-			modify web.xml 
-			
-	6. Example rest code:
+	5. Example rest code:
 			free.lzy.rest.BookResource
 				add(Post)
 				delete(Delete)

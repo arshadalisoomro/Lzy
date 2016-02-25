@@ -17,6 +17,7 @@
  */
 package pers.adar.lzy.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -33,25 +34,33 @@ import pers.adar.lzy.repository.BookRepository;
 public class BookService {
 
 	@Resource
-	private BookRepository bookDao;
+	private BookRepository bookRepository;
 	
 	public void add(Book book) {
-		bookDao.save(book);
+		bookRepository.save(book);
+	}
+
+	public void add(Collection<Book> books) {
+		bookRepository.save(books);
 	}
 
 	public void delete(int id) {
-		bookDao.delete(id);
+		bookRepository.delete(id);
 	}
 
 	public void update(Book book) {
-		bookDao.save(book);
+		bookRepository.save(book);
 	}
 	
 	public Book query(int id) {
-		return bookDao.findOne(id);
+		return bookRepository.findOne(id);
 	}
 	
 	public List<Book> queryAll() {
-		return bookDao.findAll();
+		return bookRepository.findAll();
+	}
+	
+	public void deleteAll() {
+		bookRepository.deleteAll();
 	}
 }

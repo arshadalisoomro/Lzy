@@ -39,6 +39,11 @@ public enum Code {
 	PARAM_ERROR("20000"),
 	
 	/**
+	 * 资源不存在
+	 */
+	NOT_EXSIT("20001"),
+	
+	/**
 	 * 用户未登录
 	 */
 	UNLOGIN("30000"),

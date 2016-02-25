@@ -35,6 +35,8 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import pers.adar.lzy.common.Code;
+import pers.adar.lzy.common.FailResult;
 import pers.adar.lzy.entity.dto.Book;
 import pers.adar.lzy.service.BookService;
 import pers.adar.lzy.service.exception.ServiceException;
@@ -76,11 +78,11 @@ public class BookResource {
 	public Response update(Book book) throws Exception {
 		if (!checkParam(book, true)) {
 			return Response.status(Status.BAD_REQUEST).build();
-		} else {
-			bookService.update(book);
-			
-			return Response.status(Status.ACCEPTED).build();
 		}
+
+		bookService.update(book);
+			
+		return Response.status(Status.ACCEPTED).build();
 	}
 
 	@GET
@@ -88,8 +90,11 @@ public class BookResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response query(@PathParam("id") int id) throws ServiceException {
 		Book book = bookService.query(id);
+		if (book == null) {
+			return Response.status(Status.NOT_FOUND).entity(FailResult.toJson(Code.NOT_EXSIT, "没有找到相关书籍")).build();
+		}
 
-		return book == null ? Response.status(Status.NOT_FOUND).build() : Response.ok(book).build();
+		return Response.ok(book).build();
 	}
 
 	@GET
