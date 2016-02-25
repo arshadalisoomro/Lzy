@@ -37,7 +37,7 @@
 			...
 			
 	5. Example rest code:
-			free.lzy.rest.BookResource
+			pers.adar.lzy.rest.BookResource
 				add(Post)
 				delete(Delete)
 				update(Put)
